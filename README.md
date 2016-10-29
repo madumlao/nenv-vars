@@ -45,6 +45,12 @@ directories of the current directory will be set. Variables from the
 Use the `nenv vars` command to print all environment variables in the
 order they'll be set.
 
+## Version History (nenv)
+
+**1.2.0.2 (October 30, 2016)
+
+* Adapted jenv-vars for nenv.
+
 ## Version History (jenv)
 
 **1.2.0.1 (February 26, 2015)
