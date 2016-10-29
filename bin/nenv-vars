@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
-# Usage: jenv vars
+# Usage: nenv vars
 #
-# Prints all jenv-vars environment variables applicable to the
+# Prints all nenv-vars environment variables applicable to the
 # current working directory in the order they will be set. The output
 # format is a script that may be passed to `eval` in a Bourne-
 # compatible shell.
@@ -18,13 +18,13 @@ if [ "$1" = "--version" ] || [ "$1" = "-v" ]; then
   exit
 fi
 
-traverse-jenv-vars-files() {
+traverse-nenv-vars-files() {
   local root="$1"
   local results=""
 
   while [ -n "$root" ]; do
-    if [ -e "${root}/.jenv-vars" ]; then
-      results="${root}/.jenv-vars"$'\n'"$results"
+    if [ -e "${root}/.nenv-vars" ]; then
+      results="${root}/.nenv-vars"$'\n'"$results"
     fi
     root="${root%/*}"
   done
@@ -36,13 +36,13 @@ traverse-jenv-vars-files() {
   fi
 }
 
-find-jenv-vars-files() {
+find-nenv-vars-files() {
   if [ -e "${JENV_ROOT}/vars" ]; then
     echo "${JENV_ROOT}/vars"
   fi
 
-  traverse-jenv-vars-files "$JENV_DIR" ||
-  [ "$JENV_DIR" = "$PWD" ] || traverse-jenv-vars-files "$PWD"
+  traverse-nenv-vars-files "$JENV_DIR" ||
+  [ "$JENV_DIR" = "$PWD" ] || traverse-nenv-vars-files "$PWD"
 }
 
 sanitize-vars() {
@@ -61,4 +61,4 @@ while read file; do
   echo "# $file"
   { cat "$file"; echo; } | sanitize-vars
   echo
-done < <( find-jenv-vars-files )
+done < <( find-nenv-vars-files )
