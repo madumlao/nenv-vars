@@ -7,14 +7,14 @@
 # format is a script that may be passed to `eval` in a Bourne-
 # compatible shell.
 #
-# For more information on jenv-vars, see:
-# https://github.com/sstephenson/jenv-vars#readme
+# For more information on nenv-vars, see:
+# https://github.com/madumlao/nenv-vars#readme
 
 set -e
 [ -n "$JENV_DEBUG" ] && set -x
 
 if [ "$1" = "--version" ] || [ "$1" = "-v" ]; then
-  echo "jenv-vars 1.2.0"
+  echo "nenv-vars 1.2.0"
   exit
 fi
 

@@ -1,25 +1,21 @@
-# jenv-vars
+# nenv-vars
 
-This is a plugin for [jenv](https://github.com/gcuisinier/jenv)
+This is a plugin for [nenv](https://github.com/ryuone/nenv)
 that lets you set global and project-specific environment variables
 before spawning Ruby processes.
 
-jenv-vars is based on [rbenv-vars](https://github.com/sstephenson/rbenv-vars)
+nenv-vars is based on [rbenv-vars](https://github.com/sstephenson/rbenv-vars)
 by Sam Stephenson.
 
 ## Installation
 
-To install jenv-vars, clone this repository into your
-`~/.jenv/plugins` directory. (You'll need a recent version of jenv
-that supports plugin bundles.)
+Make sure you have the latest version of nenv, then run:
 
-    $ mkdir -p ~/.jenv/plugins
-    $ cd ~/.jenv/plugins
-    $ git clone https://github.com/gcuisinier/jenv-vars.git
+    git clone https://github.com/madumlao/nenv-vars.git $(rbenv root)/plugins/nenv-vars
 
 ## Usage
 
-Define environment variables in an `.jenv-vars` file in your project,
+Define environment variables in an `.nenv-vars` file in your project,
 one variable per line, in the format `VAR=value`. For example:
 
     CLASSPATH=src:lib/foo.jar
@@ -41,12 +37,12 @@ Spaces are allowed in values; quoting is not necessary. Expansion and
 command substitution are not allowed. Lines beginning with `#` or any
 lines not in the format VAR=value will be ignored.
 
-Variables specified in the `~/.jenv/vars` file will be set
-first. Then variables specified in `.jenv-vars` files in any parent
+Variables specified in the `~/.nenv/vars` file will be set
+first. Then variables specified in `.nenv-vars` files in any parent
 directories of the current directory will be set. Variables from the
-`.jenv-vars` file in the current directory are set last.
+`.nenv-vars` file in the current directory are set last.
 
-Use the `jenv vars` command to print all environment variables in the
+Use the `nenv vars` command to print all environment variables in the
 order they'll be set.
 
 ## Version History (jenv)
